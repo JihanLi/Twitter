@@ -1,0 +1,1 @@
+window.setInterval(function(){change(randomData(jWord, jCount));},1000); 

@@ -1,0 +1,302 @@
+* 
+{ 
+	padding:0; 
+	margin:0; 
+	vertical-align:middle;
+} 
+body 
+{ 
+	background-image: url("map.jpg");
+	background-repeat: no-repeat;
+	background-size:100%;
+	background-attachment:fixed;
+	font-family:verdana, sans-serif; 
+	font-size:small; 
+} 
+.panel
+{
+	background:#ECF6CE;
+	position:absolute; 
+	top:95px; 
+	left:10px; 
+  	width:200px; 
+	height:485px;
+  	margin: 0px;
+ 	padding: 2em;
+ 	border:1px solid #000;
+ 	border-radius:40px;
+}
+
+#word
+{
+	color:#08088A;
+	font-family: Meiryo, Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	font-size:30px;
+	position:absolute; 
+	top:190px; 
+	left:32px; 
+}
+
+#author
+{
+	color:#000;
+	font-family: Consolas, sans-serif;
+	font-size:5px;
+	position:absolute; 
+	top:480px; 
+	left:60px; 
+}
+
+#drop, #par ul 
+{ 
+	list-style-type:none; 
+} 
+#drop 
+{ 
+	font-family:Georgia, sans-serif;
+	font-size:18px;
+	margin:0px;
+	padding:0px;
+	z-index:9;
+} 
+#par
+{ 
+	float:left; 
+	text-align:center; 
+	position:relative; 
+	top:40px; 
+	left:0px; 
+	width:200px;
+	height:50px;
+	z-index:9;
+} 
+#par a:link, #par a:visited 
+{ 
+	display:block; 
+	text-decoration:none; 
+	color:#000;
+	width:200px; 
+	height:50px; 
+	line-height:45px; 
+	border:1px solid #000; 
+	background:#c5dbf2; 
+} 
+#par a:hover 
+{ 
+	background:#2687eb; 
+	cursor:pointer;
+} 
+#par a:active
+{
+	background:#01DFD7;
+	cursor:pointer;
+}
+#par ul li a:hover 
+{ 
+	background:#6b839c; 
+	cursor:pointer;
+} 
+#par ul li a:active
+{
+	background:#01DFD7;
+	cursor:pointer;
+}
+#par ul 
+{ 
+	display:none; 
+	position:relative;  
+	z-index:9;
+} 
+#map-canvas
+{
+	position:absolute; 
+	top:95px; 
+	left:300px; 
+  	width:990px; 
+	height:485px;
+  	margin: 0px;
+ 	padding: 2em;
+ 	border:1px solid #000;
+ 	border-radius:40px;
+}
+
+#chart
+{
+	position:absolute; 
+	top:435px; 
+	left:310px; 
+  	width:400px; 
+	height:200px;
+	z-index:9;
+}
+
+svg 
+{
+	width: 100%;
+	height: 100%;
+}
+
+path.slice
+{
+	stroke-width:2px;
+}
+
+polyline
+{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+
+.earth
+{
+		background-image: url("earth.jpg");
+		background-repeat: no-repeat;
+		background-size:100%;
+		opacity: 0.3;
+		position:absolute; 
+		top:285px; 
+		left:25px; 
+	  width:200px; 
+		height:100px;
+}
+
+.buttons
+{
+	background-image: url("tex1.png");
+	background-repeat: no-repeat;
+	background-size:100%;
+	background-attachment:fixed;
+	height:70px;
+}
+
+.mapbtn
+{
+	text-align:center;
+	line-height:35px; 
+	vertical-align:middle;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:18px;
+	color:#FAFAFA; 
+	position:absolute; 
+	top:15px; 
+	left:250px; 
+	width:150px;
+	height:35px;
+	background:#2E9AFE;
+ 	border-radius:40px;
+}
+.mapbtn:hover
+{
+	color:#2E9AFE; 
+	background:#FAFAFA;
+	border:1px solid #2E9AFE;
+ 	border-radius:40px;
+	cursor:pointer;
+}
+.mapbtn:active
+{
+	color:#2E9AFE; 
+	background:#D8D8D8;
+ 	border-radius:40px;
+	cursor:pointer;
+}
+
+.btn1
+{
+	text-align:center;
+	line-height:35px; 
+	vertical-align:middle;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:18px;
+	color:#FAFAFA; 
+	position:absolute; 
+	top:15px; 
+	left:540px; 
+	width:150px;
+	height:35px;
+	background:#A5DF00;
+ 	border-radius:40px;
+}
+.btn1:hover
+{
+	color:#A5DF00; 
+	background:#FAFAFA;
+	border:1px solid #A5DF00;
+ 	border-radius:40px;
+	cursor:pointer;
+}
+.btn1:active
+{
+	color:#A5DF00; 
+	background:#D8D8D8;
+ 	border-radius:40px;
+	cursor:pointer;
+}
+
+
+.btn2
+{
+	text-align:center;
+	line-height:35px; 
+	vertical-align:middle;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:18px;
+	color:#FAFAFA; 
+	position:absolute; 
+	top:15px; 
+	left:740px; 
+	width:150px;
+	height:35px;
+	background:#A5DF00;
+ 	border-radius:40px;
+}
+.btn2:hover
+{
+	color:#A5DF00; 
+	background:#FAFAFA;
+	border:1px solid #A5DF00;
+ 	border-radius:40px;
+	cursor:pointer;
+}
+.btn2:active
+{
+	color:#A5DF00; 
+	background:#D8D8D8;
+ 	border-radius:40px;
+	cursor:pointer;
+}
+
+.btn3
+{
+	text-align:center;
+	line-height:35px; 
+	vertical-align:middle;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:18px;
+	color:#FAFAFA; 
+	position:absolute; 
+	top:15px; 
+	left:940px; 
+	width:150px;
+	height:35px;
+	background:#A5DF00;
+ 	border-radius:40px;
+}
+.btn3:hover
+{
+	color:#A5DF00; 
+	background:#FAFAFA;
+	border:1px solid #A5DF00;
+ 	border-radius:40px;
+	cursor:pointer;
+}
+.btn3:active
+{
+	color:#A5DF00; 
+	background:#D8D8D8;
+ 	border-radius:40px;
+	cursor:pointer;
+}
