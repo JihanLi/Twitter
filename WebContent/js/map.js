@@ -66,6 +66,7 @@ function changeTopic(tp)
   	var heatData = [];
   	var circles = [];
   	var markers = [];
+  	var sents = ['#000000', '#FFFFFF'];
   	var colors = ['#FF0000', '#0000FF', '#424242', '#00FF00', "#BF00FF"];
 	var mapOptions;
 	
@@ -166,7 +167,7 @@ function changeTopic(tp)
 			for(var i = 0; i < data.length; i++)
     		{
 				var circleOptions = {
-			      strokeColor: colors[data[i].topic],
+			      strokeColor: sents[data[i].sentiment],
 			      strokeOpacity: 0.8,
 			      strokeWeight: 2,
 			      fillColor: colors[data[i].topic],

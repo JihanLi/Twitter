@@ -1,10 +1,17 @@
 package src;
 
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.naming.NamingException;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathExpressionException;
+
+import org.w3c.dom.DOMException;
+import org.xml.sax.SAXException;
 
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.ec2.AmazonEC2;
@@ -36,18 +43,20 @@ public final class TweetGet {
 	private static final String myTokenSecret = "oUFn7OhsiuOQB0nLgx2SOUZKxnoJqE8PqqBMrKhaRidnB";
 	
 	private static SQSManager sqsManager = new SQSManager();
+	private static SentimentAnalyzer analyzer;
 	
 	private static int time = 0;
 	private static int delItem = 0;
     
 
-	public static void main(String[] args) throws TwitterException, SQLException, NamingException
+	public static void main(String[] args) throws TwitterException, SQLException, NamingException, FileNotFoundException, IOException
 	{
 		getTweet(false);
 	}
 	
-    public static void getTweet(boolean createDB) throws TwitterException, SQLException, NamingException 
+    public static void getTweet(boolean createDB) throws TwitterException, SQLException, NamingException, FileNotFoundException, IOException 
     {
+    	analyzer = new SentimentAnalyzer();
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		cb.setDebugEnabled(true)
 		   .setOAuthConsumerKey(myConsumerKey)
@@ -95,6 +104,26 @@ public final class TweetGet {
 	        		topics.computeScores(content);
 	        		int topic = topics.getTopic();
 	        		
+	        		int sentiment = 0;
+	        		try {
+						sentiment = analyzer.getSentiment(content);
+					} catch (DOMException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (XPathExpressionException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SAXException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ParserConfigurationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+	        		
 	        		if(display.length() > 100)
 	        		{
 	        			display = display.substring(0,101);
@@ -135,7 +164,8 @@ public final class TweetGet {
 	        		//Tweet tweet = new Tweet(Long.toString(status.getId()), user.getName(), location.getLatitude(), location.getLongitude(),
 	        		//				content, topic, time);
 	        		String[] values = {Long.toString(status.getId()), user.getName(), 
-	        				Double.toString(location.getLatitude()), Double.toString(location.getLongitude()), content, display, Integer.toString(topic), Integer.toString(time), " "};
+	        				Double.toString(location.getLatitude()), Double.toString(location.getLongitude()), content, display, 
+	        				Integer.toString(topic), Integer.toString(time), Integer.toString(sentiment)};
 	        		
 	        		try {
 	        			

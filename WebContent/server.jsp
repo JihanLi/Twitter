@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	try
 	{
 		String topicString = request.getParameter("Topic");
-		String[] items = { "Lattitude", "Longitude", "Display", "Topic" };
+		String[] items = { "Lattitude", "Longitude", "Display", "Topic", "Sentiment"};
 		String table = "TwitterMap";
 		
 		int topic = Integer.parseInt(topicString);
@@ -43,6 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			pos.put("longitude", list.get(1));
 			pos.put("display", list.get(2));
 			pos.put("topic", list.get(3));
+			pos.put("sentiment", list.get(4));
 			
 			array.add(pos);
 		}
